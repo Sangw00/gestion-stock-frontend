@@ -9,6 +9,7 @@ import DetailProduct from './components/DetailProduct';
 import DetailCategory from './components/DetailCategory';
 import EditCategory from './components/EditCategory';
 import EditProduct from './components/EditProduct';
+import Register from './components/Register';
 import {Container,Row,Col} from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 function App() {
@@ -36,6 +37,7 @@ function App() {
 
         <Routes>
           <Route path="/products" element={<AllProducts />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/products/new/store" element={<AddProduct />} />
           <Route path="/products/:id/show" element={<DetailProduct/>} />
           <Route path="/products/:id/edit/update" element={<EditProduct/>} />
