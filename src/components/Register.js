@@ -18,7 +18,7 @@ export default function Register() {
     e.preventDefault();
     try {
       const resp = await authService.register(formData);
-      console.log(resp);
+      console.log("token",resp.data.token);
       // Clear form fields
       setFormData({
         name: '',
