@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, FloatingLabel } from 'react-bootstrap';
 import authService from '../authService';
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ export default function Register() {
     email: '',
     password: '',
   });
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,15 +19,20 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await authService.register(formData);
-      console.log("token",resp.data.token);
-      // Clear form fields
+      const response = await authService.register(formData);
+     
+      
       setFormData({
         name: '',
         email: '',
         password: '',
   
       });
+      const name = response.data.name;
+      authService.storeUserName(name);
+      console.log(name);
+ navigate('/');
+      
     } catch (error) {
       console.error('Error adding user:', error);
     }
@@ -33,6 +40,7 @@ export default function Register() {
 
   return (
     <form method='POST' encType="multipart/form-data" onSubmit={handleSubmit}>
+      Register
       <FloatingLabel controlId="floatingName" label="Name" className="m-5">
         <Form.Control type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} />
       </FloatingLabel>

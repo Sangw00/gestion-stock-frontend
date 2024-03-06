@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import categoryService from '../categoryService'; 
 
 export default function AllCategory() {
   const [categories, setCategories] = useState([]);
@@ -8,15 +9,27 @@ export default function AllCategory() {
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/categories")
       .then(response => {
-        setCategories(response.data.categories);
       })
       .catch(error => {
         console.error("Error fetching categories:", error);
       });
-  }, []); 
+    }, []); 
+    
+    console.log("Categories:", categories);
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          const response = await categoryService.getAllCategories();
+          setCategories(response.data.categories);
+          console.log("data:", response);
+      } catch (error) {
+        console.error('Failed to fetch products:', error);
+        alert('Failed to fetch products.');
+      }
+    };
 
-  console.log("Categories:", categories);
-
+    fetchProducts();
+  }, []);
   return (
     <div className="App p-5 ">
 <div className=" d-md-inline-flex ">

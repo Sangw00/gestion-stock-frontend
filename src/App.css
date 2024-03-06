@@ -25,3 +25,6 @@
   border-radius: 20px;
  }
 
+.text-c{
+  text-decoration-color: -webkit-linear-gradient(to bottom, #fffcdc, #d9a7b4);
+}

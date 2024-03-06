@@ -10,6 +10,7 @@ function AllProducts() {
       try {
         const resp = await productService.getAllProducts();
         setProducts(resp.data.products);
+        console.log("data:", resp);
         console.log("Products:", resp.data.products);
       } catch (error) {
         console.error('Failed to fetch products:', error);
@@ -49,9 +50,9 @@ add
                   </Link>
                 </td>
                 <td>
-                  <button  className="btn btn-outline-light color">
+                  <Link to={`/products/${product.id}/delete`} className="btn btn-outline-light color">
                       <span className="material-symbols-outlined">delete</span>
-                          </button>
+                         </Link>
                 </td>
                 <td>
                 <Link to={`/products/${product.id}/show`} className="btn btn-outline-light color">
