@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import categoryService from '../categoryService';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 
 export default function EditCategory() {
     const { id } = useParams();
@@ -42,7 +42,7 @@ export default function EditCategory() {
     return (
         <div>
             <form encType="multipart/x-www-form-urlencoded" onSubmit={handleSubmit}>
-                <div className="container">
+            <div className="container p-5">
                     <div className="card">
                         <div className="card-header color text-light">Edit Category</div>
                         <div className="card-body">
@@ -50,11 +50,13 @@ export default function EditCategory() {
                                 <label>Name</label>
                                 <input type="text" className="form-control" name="name" value={category.name} onChange={handleChange} required />
                             </div>
-                            <div className="form-group">
+                            <div className="form-group ">
                                 <label>Description</label>
                                 <input type="text" className="form-control" name="description" value={category.description} onChange={handleChange} required />
                             </div>
-                            <button type="submit" className="btn btn-outline-light color pt-2">Update</button>
+                            <button className="btn btn-outline-light color  " ><Link to={`/categories`} ><span className="material-symbols-outlined link-light ">cancel</span>
+                  </Link></button>
+                        <button type="submit" className="btn btn-outline-light color p-2">Update</button>
                         </div>
                     </div>
                 </div>

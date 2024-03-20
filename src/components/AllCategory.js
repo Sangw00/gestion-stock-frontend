@@ -60,16 +60,14 @@ add
                    </Link>
                   </td>
                   <td>
-                    <button type="submit" className="btn btn-outline-light color">
-                      <a href="*">
-                        <span className="material-symbols-outlined">delete</span>
-                      </a>
-                    </button>
+                  <Link to={`/categories/${category.id}/delete`} className="btn btn-outline-light color">
+                      <span className="material-symbols-outlined">delete</span>
+                  </Link>
                   </td>
                   <td>
                   <Link to={`/categories/${category.id}/show`} className="btn btn-outline-light color">
                   <span className="material-symbols-outlined">info</span>
-                   </Link>
+                  </Link>
                   </td>
                 </tr>
               ))

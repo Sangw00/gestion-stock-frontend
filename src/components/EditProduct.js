@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import productService from '../productService';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import categoryService from '../categoryService';
 
 export default function EditProduct() {
@@ -53,8 +53,9 @@ export default function EditProduct() {
     };
 
     return (
-        <form method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
-            <div className="container">
+
+        <form method="POST" encType="multipart/form-data"   onSubmit={handleSubmit}>
+            <div className="container p-5">
                 <div className="card">
                     <div className="card-header color text-light">Edit Product</div>
                     <div className="card-body">
@@ -88,11 +89,13 @@ export default function EditProduct() {
                                 ))}
                             </select>
                         </div>
-
-                        <button type="submit" className="btn btn-outline-light color pt-2">Update</button>
+                        <button className="btn btn-outline-light color  " ><Link to={`/products`} ><span class="material-symbols-outlined link-light">cancel</span>
+                  </Link></button>
+                        <button type="submit" className="btn btn-outline-light color p-2">Update</button>
                     </div>
                 </div>
             </div>
         </form>
+        
     );
 }

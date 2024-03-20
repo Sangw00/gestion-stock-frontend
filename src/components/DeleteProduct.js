@@ -7,9 +7,10 @@ const DeleteProduct = () => {
   const navigate = useNavigate();
 
   const handleDelete = async () => {
-    try {
-      await productService.deleteProduct(id);
-      navigate('/products');
+      try {
+        const response = await productService.deleteProduct(id);
+        console.log(response.data);
+        navigate('/products');
     } catch (error) {
       console.error('Error deleting product:', error);
     }

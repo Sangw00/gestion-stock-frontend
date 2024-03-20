@@ -45,7 +45,6 @@ add
                 <td>{product.name}</td>
                 <td>
                   <Link to={`/products/${product.id}/edit/update`} className="btn btn-outline-light color">
-
                     <span className="material-symbols-outlined">edit</span>
                   </Link>
                 </td>

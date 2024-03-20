@@ -28,7 +28,7 @@ export default {
       } 
     }), 
   deleteCategory: (categoryId) =>
-    axios.delete(`${BASE_BACKEND_URL}/categories/${categoryId}`, { 
+    axios.delete(`${BASE_BACKEND_URL}/categories/${categoryId}/delete`, { 
       headers: {
         'Authorization': 'Bearer ' + authService.getToken()
       } 

@@ -1,8 +1,8 @@
 
-import React, {useEffect,useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import authService from '../authService';
-
+import Button from "./Button";
 
 function Auth(){
    
@@ -14,9 +14,9 @@ function Auth(){
     } else {
       return (
         <div>
-          <Link className="nav-link text-secondary" to="/register">Register</Link>
-          <Link className="nav-link text-secondary" to="/login">Login</Link>
-        </div>
+         <Button name= {<Link  to="/register">Register</Link>}/> 
+         <Button name= {<Link  to="/login">Login</Link>}/> 
+ </div>
       );
     }
   

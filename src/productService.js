@@ -33,14 +33,14 @@ const productService = {
     }),
 
   updateProduct: (productId, product) =>
-    axios.put(`${BASE_BACKEND_URL}/products/${productId}/edit/update`, product, {
+    axios.post(`${BASE_BACKEND_URL}/products/${productId}/edit/update`, product, {
       headers: {
         Authorization: 'Bearer ' + authService.getToken(),
       },
     }),
 
   deleteProduct: (productId) =>
-    axios.delete(`${BASE_BACKEND_URL}/products/${productId}`, {
+    axios.delete(`${BASE_BACKEND_URL}/products/${productId}/delete`, {
       headers: {
         Authorization: 'Bearer ' + authService.getToken(),
       },
